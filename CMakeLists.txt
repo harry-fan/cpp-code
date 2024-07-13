@@ -9,4 +9,5 @@ add_executable(select_client.c
         epoll_server.cpp
         epoll_client.cpp
         shm_info.cpp
-        thread_pool.cpp tree_node1.cpp test_code.cpp mobilize.cpp upDown.cpp)
+        thread_pool.cpp tree_node1.cpp test_code.cpp mobilize.cpp upDown.cpp
+        quick_sort.cpp)
