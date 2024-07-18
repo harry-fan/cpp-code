@@ -19,6 +19,25 @@ struct shared_data {
     pthread_mutex_t mutex;
 };
 
+// 自动锁
+class AutoLockGuard {
+public:
+    AutoLockGuard(pthread_mutex_t& mutex) : _mutex(mutex) {
+        pthread_mutex_lock(&_mutex);
+    }
+
+    virtual ~AutoLockGuard() {
+        pthread_mutex_unlock(&_mutex);
+    }
+
+    // 禁止拷贝和赋值
+    AutoLockGuard(const AutoLockGuard&) = delete;
+    AutoLockGuard& operator=(const AutoLockGuard&) = delete;
+
+private:
+    pthread_mutex_t &_mutex;
+};
+
 int main() {
     int shm_fd;
     void *ptr;
@@ -53,25 +72,28 @@ int main() {
     if (fork() == 0) {
         // 子进程读取共享内存数据
         for (int i = 0; i < 10; ++i) {
-            pthread_mutex_lock(&(shared->mutex)); // 加锁
+            sleep(1);
 
+            AutoLockGuard(shared->mutex);
             shared->counter++;
             printf("Child Process: Counter = %d\n", shared->counter);
-
-            pthread_mutex_unlock(&(shared->mutex)); // 解锁
-            sleep(1);
         }
     } else {
         // 父进程写入共享内存数据
         for (int i = 0; i < 10; ++i) {
-            pthread_mutex_lock(&(shared->mutex)); // 加锁
+            sleep(1);
 
+            AutoLockGuard(shared->mutex);
             shared->counter++;
             printf("Parent Process: Counter = %d\n", shared->counter);
-
-            pthread_mutex_unlock(&(shared->mutex)); // 解锁
-            sleep(1);
         }
+    }
+
+    {
+        sleep(2);
+        // 读取写入的数据
+        AutoLockGuard(shared->mutex);
+        printf("from memory get Counter = %d pid = %d\n", shared->counter, getpid());
     }
 
     // 等待子进程结束
