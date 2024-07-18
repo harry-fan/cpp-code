@@ -9,5 +9,5 @@
 git.version
 
 .idea
-*.a
+*.out
 cmake-build-debug
