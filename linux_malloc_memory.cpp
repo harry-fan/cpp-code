@@ -6,6 +6,7 @@
 #include <malloc.h>
 #include <unistd.h>
 
+// 在 x86_64 位 linux 上测试结果如下
 void testBigMemoryMalloc() {
     printf("查看分配内存 %d\n", getpid());
 
@@ -70,5 +71,9 @@ int main() {
     // 测试超大内存申请，查看分配内存信息
     testBigMemoryMalloc();
 
+    // 从一个资料上看128k是进行分配堆和分配文件映射区的分割点。
+    // 其实是针对不同的系统，64位系统就是256k是分割点。
+    // 并且可以看到在堆上分配的内存，释放之后不会直接销毁
+    // 从文件映射区分配的大内存，在free之后直接就还给了系统。
     return 0; // 进程结束回收分配的资源
 }
