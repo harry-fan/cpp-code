@@ -37,6 +37,10 @@ add_executable(MyProject
         linux_module/signal_handle.cpp
         linux_module/user_thread.cpp
         linux_module/virtual_table.cpp
+        linux_module/atom_queue.cpp
+        linux_module/linux_kernel2.cpp
+        linux_module/linux_kernel.h
+        linux_module/linux_kernel.cpp
 
         # util
         util/connection.h
