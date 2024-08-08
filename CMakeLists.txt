@@ -24,6 +24,7 @@ add_executable(MyProject
         cplus_module/shm_info.cpp
         cplus_module/tree_node1.cpp
         cplus_module/thread_pool.cpp
+        cplus_module/consistent_hash.cpp
 
         # game_module
         game_module/king_honor_match.cpp
@@ -41,6 +42,7 @@ add_executable(MyProject
         linux_module/linux_kernel2.cpp
         linux_module/linux_kernel.h
         linux_module/linux_kernel.cpp
+        linux_module/asm_learn.c
 
         # util
         util/connection.h
