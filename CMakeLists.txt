@@ -52,4 +52,5 @@ add_executable(MyProject
         util/restclient.h
         util/time_util.h
         util/version.h
+        game_module/must_hit.cpp
 )
