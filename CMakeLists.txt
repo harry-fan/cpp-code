@@ -53,4 +53,15 @@ add_executable(MyProject
         util/time_util.h
         util/version.h
         game_module/must_hit.cpp
+        game_module/c_array.c
+        game_module/no_inherit.cpp
+        algorithm/mid_search.cpp
+        redis_module/adlist.cpp
+        game_module/oasis_match.cpp
+        game_module/oasis_match.h
+        util/buffer.h
+        util/buffer.cpp
+        util/blockqueue.h
+        util/log.cpp
+        practice/log_run.cpp
 )

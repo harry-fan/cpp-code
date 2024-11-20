@@ -25,7 +25,7 @@ void addConf(int id, int upNo, int weight) {
 void loadDatas() {
     addConf(1, 150, 10);
     addConf(2, 0, 20);
-    addConf(3, 0, 3);
+    addConf(3, 0, 1);
     addConf(4, 0, 20);
     addConf(5, 0, 30);
     addConf(6, 0, 10);
@@ -35,7 +35,8 @@ void loadDatas() {
     addConf(10, 0, 10);
     addConf(11, 0, 30);
     addConf(12, 0, 30);
-    datas[3].mustHits = {10, 20, 30, 40, 50};
+    datas[3].mustHits = {10,25,35,65,75,90,105,115,130,135,145,160,165,185,200,210,230,245,255,275,285,305,315,325,335,345,355,365,375,385,395,400,415,425,435,440,445,455,470,480,490,500};
+
 }
 bool couldMustHit(const vector<int64_t> &uids, const struct HitConf &cfg);
 
