@@ -64,4 +64,7 @@ add_executable(MyProject
         util/blockqueue.h
         util/log.cpp
         practice/log_run.cpp
+        util/logger.h
+        util/logger.cpp
+        game_module/parse_config.cpp
 )
