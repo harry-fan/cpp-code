@@ -20,6 +20,8 @@ struct OwActLegionInfo {
     int64_t loseStreak = 0;
     int64_t lastMatchUid = 0;
     int64_t signUpIndex = 0;
+    string leagueName;
+    int64_t sid;
 };
 
 struct OwCenterData {

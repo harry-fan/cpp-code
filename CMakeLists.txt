@@ -9,6 +9,7 @@ include_directories(algorithm)
 include_directories(cplus_module)
 include_directories(game_module)
 include_directories(linux_module)
+include_directories(third)
 
 add_executable(MyProject
         # algorithm
@@ -48,7 +49,6 @@ add_executable(MyProject
         util/connection.h
         util/helpers.h
         util/json.hpp
-        util/nlohmannUtil.h
         util/restclient.h
         util/time_util.h
         util/version.h
@@ -64,7 +64,14 @@ add_executable(MyProject
         util/blockqueue.h
         util/log.cpp
         practice/log_run.cpp
-        util/logger.h
-        util/logger.cpp
         game_module/parse_config.cpp
+        game_module/calc_lost.cpp
+
+        third/nlohmann_json/json.hpp
+        game_module/oasis_jsonmatch.cpp
+        game_module/league_duel_match.cpp
+        game_module/adv_dec.h
+        game_module/adv_dec.cpp
+        game_module/adv_main.cpp
+        game_module/adv_main2.h
 )
