@@ -4,12 +4,12 @@ project(cpp-code)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-include_directories(util)
+include_directories(base/util)
 include_directories(algorithm)
 include_directories(cplus_module)
 include_directories(game_module)
 include_directories(linux_module)
-include_directories(third)
+include_directories(base/third)
 
 add_executable(MyProject
         # algorithm
@@ -46,12 +46,12 @@ add_executable(MyProject
         linux_module/asm_learn.c
 
         # util
-        util/connection.h
-        util/helpers.h
-        util/json.hpp
-        util/restclient.h
-        util/time_util.h
-        util/version.h
+        base/util/connection.h
+        base/util/helpers.h
+        base/util/json.hpp
+        base/util/restclient.h
+        base/util/time_util.h
+        base/util/version.h
         game_module/must_hit.cpp
         game_module/c_array.c
         game_module/no_inherit.cpp
@@ -59,19 +59,17 @@ add_executable(MyProject
         redis_module/adlist.cpp
         game_module/oasis_match.cpp
         game_module/oasis_match.h
-        util/buffer.h
-        util/buffer.cpp
-        util/blockqueue.h
-        util/log.cpp
+        base/util/buffer.h
+        base/util/buffer.cpp
+        base/util/blockqueue.h
+        base/util/log.cpp
         practice/log_run.cpp
         game_module/parse_config.cpp
-        game_module/calc_lost.cpp
 
-        third/nlohmann_json/json.hpp
+        base/third/nlohmann_json/json.hpp
         game_module/oasis_jsonmatch.cpp
         game_module/league_duel_match.cpp
-        game_module/adv_dec.h
-        game_module/adv_dec.cpp
-        game_module/adv_main.cpp
-        game_module/adv_main2.h
+        game_module/get_ip_info.cpp
+        game_module/get_ip_info.cpp
+        algorithm/list_reverse.cpp
 )
